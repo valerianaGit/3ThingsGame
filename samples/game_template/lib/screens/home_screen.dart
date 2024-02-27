@@ -7,6 +7,9 @@ import 'package:game_template/screens/ground_screen.dart';
 import 'package:game_template/screens/settings_screen.dart';
 import 'package:provider/provider.dart';
 import '../src/style/palette.dart';
+// Class contains 
+// Scaffold -> SafeArea -> screens stack
+// screen navigation - > bottomNavBar
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
