@@ -139,7 +139,7 @@ class MyApp extends StatelessWidget {
 //TODO: change this routing to one for the bottom navigation screen - 3 things app
 //USE LETTERS TO SANTA ROUTING IN HOMEPAGE
 //TODO: TONIGHT NAVIGATION AND SCREENS ->
-// TODO:STEP 1 - CLEANUP ALL THIS ROUTING TO A HOME PAGE,
+// TODO: CLEANUP ALL THIS ROUTING TO A HOME PAGE,
 // SO MAIN.DART IS NOT SO CROWDED
 // TODO:STEP 2 - CREATE ROUTES FOR SCREENS
 // TODO:Step 3 - CREATE EACH SCREEN MVP
@@ -227,7 +227,7 @@ class MyApp extends StatelessWidget {
               ),
               useMaterial3: true,
             ),
-            home: HomeScreen(),
+            home: const HomeScreen(),
             scaffoldMessengerKey: scaffoldMessengerKey,
           );
         }),
@@ -235,3 +235,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+//TODO: DESTROY gorouter dependency
+//stateful widgets get rerendered very often, every time state is changed. 
+//CREATE screens + any elements that don't need ot be rerendered as stateless
+//REFACTOR ANIMATION AND STATE WIDGETS into separate stateful widgets 
