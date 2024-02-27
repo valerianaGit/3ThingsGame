@@ -38,6 +38,7 @@ import 'src/style/my_transition.dart';
 import 'src/style/palette.dart';
 import 'src/style/snack_bar.dart';
 import 'src/win_game/win_game_screen.dart';
+import 'constants/strings.dart';
 
 Future<void> main() async {
   // Subscribe to log messages.
@@ -115,6 +116,7 @@ Future<void> main() async {
 
   runApp(
     MyApp(
+      // Initializing app with all necessary controllers
       settingsPersistence: LocalStorageSettingsPersistence(),
       playerProgressPersistence: LocalStoragePlayerProgressPersistence(),
       inAppPurchaseController: inAppPurchaseController,
@@ -128,7 +130,16 @@ Logger _log = Logger('main.dart');
 
 class MyApp extends StatelessWidget {
   static final _router = GoRouter(
-//MARK: Build routes for different screens 
+//MARK: Build routes for different screens
+//TODO: change this routing to one for the bottom navigation screen - 3 things app
+//USE LETTERS TO SANTA ROUTING IN HOMEPAGE
+//TODO: TONIGHT NAVIGATION AND SCREENS ->
+// TODO:STEP 1 - CLEANUP ALL THIS ROUTING TO A HOME PAGE,
+// SO MAIN.DART IS NOT SO CROWDED
+// TODO:STEP 2 - CREATE ROUTES FOR SCREENS
+// TODO:Step 3 - CREATE EACH SCREEN MVP
+//TODO: TUESDAY 27TH -> LOCALIZATION, CONSTANTS ETC
+// ROUTES
     routes: [
       GoRoute(
           path: '/',
@@ -220,8 +231,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppLifecycleObserver(
+      // Provider package, multiprovider
       child: MultiProvider(
         providers: [
+          // 1 Provider- player progress
           ChangeNotifierProvider(
             create: (context) {
               var progress = PlayerProgress(playerProgressPersistence);
@@ -229,11 +242,15 @@ class MyApp extends StatelessWidget {
               return progress;
             },
           ),
+          // 2 Provider- games services value
           Provider<GamesServicesController?>.value(
               value: gamesServicesController),
+          // 3 Provider- ads
           Provider<AdsController?>.value(value: adsController),
+          // 4 Provider-  in app purchase
           ChangeNotifierProvider<InAppPurchaseController?>.value(
               value: inAppPurchaseController),
+          // 5 Provider - settings controller
           Provider<SettingsController>(
             lazy: false,
             create: (context) => SettingsController(
@@ -260,11 +277,13 @@ class MyApp extends StatelessWidget {
           ),
         ],
         child: Builder(builder: (context) {
+          //color palette for app
           final palette = context.watch<Palette>();
-
+// creates a material app that uses a router instead of a navigator
           return MaterialApp.router(
-            title: 'Flutter Demo',
+            title: kGameTitle,
             theme: ThemeData.from(
+              //set application color scheme -  can edit these, if needed 
               colorScheme: ColorScheme.fromSeed(
                 seedColor: palette.darkPen,
                 background: palette.backgroundMain,
