@@ -5,13 +5,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import '../constants/strings.dart';
 
-import '../audio/audio_controller.dart';
-import '../audio/sounds.dart';
-import '../player_progress/player_progress.dart';
-import '../style/palette.dart';
-import '../style/responsive_screen.dart';
-import 'levels.dart';
+import '../src/audio/audio_controller.dart';
+import '../src/audio/sounds.dart';
+import '../src/player_progress/player_progress.dart';
+import '../src/style/palette.dart';
+import '../src/style/responsive_screen.dart';
+import '../src/level_selection/levels.dart';
 
 class LevelSelectionScreen extends StatelessWidget {
   const LevelSelectionScreen({super.key});
@@ -30,9 +31,9 @@ class LevelSelectionScreen extends StatelessWidget {
               padding: EdgeInsets.all(16),
               child: Center(
                 child: Text(
-                  'Select level',
+                  kSelectLevel,
                   style:
-                      TextStyle(fontFamily: 'Permanent Marker', fontSize: 30),
+                      TextStyle(fontFamily: kPermanentMarker, fontSize: 30),
                 ),
               ),
             ),
@@ -63,7 +64,7 @@ class LevelSelectionScreen extends StatelessWidget {
           onPressed: () {
             GoRouter.of(context).go('/');
           },
-          child: const Text('Back'),
+          child: const Text(kBack),
         ),
       ),
     );

@@ -3,15 +3,16 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:game_template/constants/strings.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
-import '../audio/audio_controller.dart';
-import '../audio/sounds.dart';
-import '../games_services/games_services.dart';
-import '../settings/settings.dart';
-import '../style/palette.dart';
-import '../style/responsive_screen.dart';
+import '../src/audio/audio_controller.dart';
+import '../src/audio/sounds.dart';
+import '../src/games_services/games_services.dart';
+import '../src/settings/settings.dart';
+import '../src/style/palette.dart';
+import '../src/style/responsive_screen.dart';
 
 class MainMenuScreen extends StatelessWidget {
   const MainMenuScreen({super.key});
@@ -34,7 +35,7 @@ class MainMenuScreen extends StatelessWidget {
               'Flutter Game Template!',
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontFamily: 'Permanent Marker',
+                fontFamily: kPermanentMarker,
                 fontSize: 55,
                 height: 1,
               ),

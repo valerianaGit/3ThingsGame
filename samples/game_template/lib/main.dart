@@ -23,17 +23,17 @@ import 'src/audio/audio_controller.dart';
 import 'src/games_services/games_services.dart';
 import 'src/games_services/score.dart';
 import 'src/in_app_purchase/in_app_purchase.dart';
-import 'src/level_selection/level_selection_screen.dart';
+import 'screens/level_selection_screen.dart';
 import 'src/level_selection/levels.dart';
-import 'src/main_menu/main_menu_screen.dart';
-import 'src/play_session/play_session_screen.dart';
+import 'screens/main_menu_screen.dart';
+import 'screens/play_session_screen.dart';
 import 'src/player_progress/persistence/local_storage_player_progress_persistence.dart';
 import 'src/player_progress/persistence/player_progress_persistence.dart';
 import 'src/player_progress/player_progress.dart';
 import 'src/settings/persistence/local_storage_settings_persistence.dart';
 import 'src/settings/persistence/settings_persistence.dart';
 import 'src/settings/settings.dart';
-import 'src/settings/settings_screen.dart';
+import 'screens/settings_screen.dart';
 import 'src/style/my_transition.dart';
 import 'src/style/palette.dart';
 import 'src/style/snack_bar.dart';
@@ -128,6 +128,7 @@ Logger _log = Logger('main.dart');
 
 class MyApp extends StatelessWidget {
   static final _router = GoRouter(
+//MARK: Build routes for different screens 
     routes: [
       GoRoute(
           path: '/',
