@@ -134,18 +134,6 @@ Future<void> main() async {
 Logger _log = Logger('main.dart');
 
 class MyApp extends StatelessWidget {
-
-//MARK: Build routes for different screens
-//TODO: change this routing to one for the bottom navigation screen - 3 things app
-//USE LETTERS TO SANTA ROUTING IN HOMEPAGE
-//TODO: TONIGHT NAVIGATION AND SCREENS ->
-// TODO: CLEANUP ALL THIS ROUTING TO A HOME PAGE,
-// SO MAIN.DART IS NOT SO CROWDED
-// TODO:STEP 2 - CREATE ROUTES FOR SCREENS
-// TODO:Step 3 - CREATE EACH SCREEN MVP
-//TODO: TUESDAY 27TH -> LOCALIZATION, CONSTANTS ETC
-// ROUTES
-
   final PlayerProgressPersistence playerProgressPersistence;
   final SettingsPersistence settingsPersistence;
   final GamesServicesController? gamesServicesController;
