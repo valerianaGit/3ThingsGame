@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:game_template/constants/strings.dart';
+import '../src/style/palette.dart';
+import 'package:provider/provider.dart';
 
 class GratitudeCard extends StatelessWidget {
     final String content;
@@ -14,6 +16,7 @@ class GratitudeCard extends StatelessWidget {
   }
   @override
   Widget build(BuildContext context) {
+    final palette = context.watch<Palette>();
       return InkWell(
       onTap: () {
         Navigator.push(
@@ -28,7 +31,7 @@ class GratitudeCard extends StatelessWidget {
             top: 16.0, bottom: 16.0, left: 16.0, right: 16.0),
  child: Card(
           elevation: 5,
-          color: kDarkGreen,//Colors.purple[100],
+          color: palette.darkPen,//Colors.purple[100],
           child: Container(
             height: 50.0,
             alignment: Alignment.center,
