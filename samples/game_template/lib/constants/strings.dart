@@ -1,5 +1,5 @@
 const kBack = 'Back';
-
-const  kPermanentMarker = 'Permanent Marker';
+const kGameTitle = 'Dragons Need Rest Too';
+const kPermanentMarker = 'Permanent Marker';
 
 const kSelectLevel = 'Select level';
