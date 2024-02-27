@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:game_template/constants/strings.dart';
+import 'package:game_template/widgets/gratitude_card.dart';
 
 // Row ->
 // left side is dragon, 

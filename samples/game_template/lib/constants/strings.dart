@@ -4,7 +4,8 @@
 const kBack = 'Back';
 
 // C
-
+// Constant styles for card texts
+const kcardTextStyle = TextStyle(fontSize: 40.0, color: Colors.white);
 // D
 
 // E
