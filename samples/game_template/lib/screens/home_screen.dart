@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:game_template/constants/strings.dart';
-
+import 'package:game_template/screens/breath_screen.dart';
+import 'package:game_template/screens/gratitude_screen.dart';
+import 'package:game_template/screens/ground_screen.dart';
 
 import 'package:game_template/screens/settings_screen.dart';
 
@@ -14,17 +16,14 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
     int selectedIndex = 0;
   final screens = [
-   //screen 1 , breath
-    //screen 2 ,grounding
-    //screen 3 , gratitude 
-    // screen 4 -> settings 
-SettingsScreen(),
-SettingsScreen(),
-SettingsScreen(),
+   BreathScreen(),
+   GroundScreen(),
+   GratitudeScreen(),
 SettingsScreen(),
   ];
   @override
   Widget build(BuildContext context) {
+    final palette = context.watch<Palette>();
     return Scaffold(
       // appBar: AppBar(
       //   automaticallyImplyLeading: false,
