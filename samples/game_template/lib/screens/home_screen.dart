@@ -5,6 +5,8 @@ import 'package:game_template/screens/gratitude_screen.dart';
 import 'package:game_template/screens/ground_screen.dart';
 
 import 'package:game_template/screens/settings_screen.dart';
+import 'package:provider/provider.dart';
+import '../src/style/palette.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -19,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
    BreathScreen(),
    GroundScreen(),
    GratitudeScreen(),
-SettingsScreen(),
+   SettingsScreen(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -42,16 +44,18 @@ SettingsScreen(),
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.shifting,
-        // backgroundColor: ,//ThemeData.,
-        // selectedItemColor: ,//themedata white Colors.white,
-        // unselectedItemColor: kDarkGrey,
+        selectedItemColor: palette.trueWhite,
+        unselectedItemColor: palette.darkPen,
         currentIndex: selectedIndex,
         onTap: (index) => setState(() => selectedIndex = index),
-        items: const [
+        items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.bakery_dining_sharp),
             label: kFeed,
-           // backgroundColor: kDarkGreen,
+            //background color is here and not in the main BottomNav code
+            //when type: .shifting, the item's background color 
+            //supercedes the main widget one  
+            backgroundColor: palette.redPen,
            
           ),
  BottomNavigationBarItem(
