@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../src/style/palette.dart';
 
-// 
+//TODO: CREATE string constants here
 
 class TimerClock extends StatefulWidget {
   const TimerClock ({super.key});
