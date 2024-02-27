@@ -39,6 +39,7 @@ import 'src/style/palette.dart';
 import 'src/style/snack_bar.dart';
 import 'src/win_game/win_game_screen.dart';
 import 'constants/strings.dart';
+import 'screens/home_screen.dart';
 
 Future<void> main() async {
   // Subscribe to log messages.
@@ -82,8 +83,12 @@ Future<void> main() async {
 
   _log.info('Going full screen');
   SystemChrome.setEnabledSystemUIMode(
-    SystemUiMode.edgeToEdge,
+    SystemUiMode.immersiveSticky,
   );
+     SystemChrome.setPreferredOrientations([
+        DeviceOrientation.portraitUp,
+        DeviceOrientation.portraitDown,
+      ]);
 
   // TODO: When ready, uncomment the following lines to enable integrations.
   //       Read the README for more info on each integration.
@@ -129,7 +134,7 @@ Future<void> main() async {
 Logger _log = Logger('main.dart');
 
 class MyApp extends StatelessWidget {
-  static final _router = GoRouter(
+
 //MARK: Build routes for different screens
 //TODO: change this routing to one for the bottom navigation screen - 3 things app
 //USE LETTERS TO SANTA ROUTING IN HOMEPAGE
@@ -140,83 +145,11 @@ class MyApp extends StatelessWidget {
 // TODO:Step 3 - CREATE EACH SCREEN MVP
 //TODO: TUESDAY 27TH -> LOCALIZATION, CONSTANTS ETC
 // ROUTES
-    routes: [
-      GoRoute(
-          path: '/',
-          builder: (context, state) =>
-              const MainMenuScreen(key: Key('main menu')),
-          routes: [
-            GoRoute(
-                path: 'play',
-                pageBuilder: (context, state) => buildMyTransition<void>(
-                      key: ValueKey('play'),
-                      child: const LevelSelectionScreen(
-                        key: Key('level selection'),
-                      ),
-                      color: context.watch<Palette>().backgroundLevelSelection,
-                    ),
-                routes: [
-                  GoRoute(
-                    path: 'session/:level',
-                    pageBuilder: (context, state) {
-                      final levelNumber =
-                          int.parse(state.pathParameters['level']!);
-                      final level = gameLevels
-                          .singleWhere((e) => e.number == levelNumber);
-                      return buildMyTransition<void>(
-                        key: ValueKey('level'),
-                        child: PlaySessionScreen(
-                          level,
-                          key: const Key('play session'),
-                        ),
-                        color: context.watch<Palette>().backgroundPlaySession,
-                      );
-                    },
-                  ),
-                  GoRoute(
-                    path: 'won',
-                    redirect: (context, state) {
-                      if (state.extra == null) {
-                        // Trying to navigate to a win screen without any data.
-                        // Possibly by using the browser's back button.
-                        return '/';
-                      }
-
-                      // Otherwise, do not redirect.
-                      return null;
-                    },
-                    pageBuilder: (context, state) {
-                      final map = state.extra! as Map<String, dynamic>;
-                      final score = map['score'] as Score;
-
-                      return buildMyTransition<void>(
-                        key: ValueKey('won'),
-                        child: WinGameScreen(
-                          score: score,
-                          key: const Key('win game'),
-                        ),
-                        color: context.watch<Palette>().backgroundPlaySession,
-                      );
-                    },
-                  )
-                ]),
-            GoRoute(
-              path: 'settings',
-              builder: (context, state) =>
-                  const SettingsScreen(key: Key('settings')),
-            ),
-          ]),
-    ],
-  );
 
   final PlayerProgressPersistence playerProgressPersistence;
-
   final SettingsPersistence settingsPersistence;
-
   final GamesServicesController? gamesServicesController;
-
   final InAppPurchaseController? inAppPurchaseController;
-
   final AdsController? adsController;
 
   const MyApp({
@@ -279,8 +212,7 @@ class MyApp extends StatelessWidget {
         child: Builder(builder: (context) {
           //color palette for app
           final palette = context.watch<Palette>();
-// creates a material app that uses a router instead of a navigator
-          return MaterialApp.router(
+          return MaterialApp(
             title: kGameTitle,
             theme: ThemeData.from(
               //set application color scheme -  can edit these, if needed 
@@ -295,9 +227,7 @@ class MyApp extends StatelessWidget {
               ),
               useMaterial3: true,
             ),
-            routeInformationProvider: _router.routeInformationProvider,
-            routeInformationParser: _router.routeInformationParser,
-            routerDelegate: _router.routerDelegate,
+            home: HomeScreen(),
             scaffoldMessengerKey: scaffoldMessengerKey,
           );
         }),
