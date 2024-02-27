@@ -62,24 +62,18 @@ class _HomeScreenState extends State<HomeScreen> {
             
             icon: Icon(Icons.handshake_sharp),
             label: kHeal,
-            //backgroundColor: kDarkGreen,
           ),
 BottomNavigationBarItem(
             icon: Icon(Icons.wine_bar_sharp),
-            label: kMind,
-           // backgroundColor: kDarkGreen,
-           
+            label: kMind,          
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings_applications_sharp),
             label: kSettings,
-          //  backgroundColor: kDarkGreen,
            
           ),
         ],
       ),
     );
-    // create dinasour image with transparent background, 
-    // with circle around it to  countdown a minute 
   }
 }
