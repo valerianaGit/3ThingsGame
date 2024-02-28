@@ -40,6 +40,7 @@ import 'src/style/snack_bar.dart';
 import 'src/win_game/win_game_screen.dart';
 import 'constants/strings.dart';
 import 'screens/home_screen.dart';
+import 'data/drift_db.dart';
 
 Future<void> main() async {
   // Subscribe to log messages.
@@ -85,10 +86,10 @@ Future<void> main() async {
   SystemChrome.setEnabledSystemUIMode(
     SystemUiMode.immersiveSticky,
   );
-     SystemChrome.setPreferredOrientations([
-        DeviceOrientation.portraitUp,
-        DeviceOrientation.portraitDown,
-      ]);
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
 
   // TODO: When ready, uncomment the following lines to enable integrations.
   //       Read the README for more info on each integration.
@@ -196,6 +197,9 @@ class MyApp extends StatelessWidget {
           Provider(
             create: (context) => Palette(),
           ),
+          Provider(
+            create: (context) => Gratitudes(),
+          ),
         ],
         child: Builder(builder: (context) {
           //color palette for app
@@ -203,7 +207,7 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             title: kGameTitle,
             theme: ThemeData.from(
-              //set application color scheme -  can edit these, if needed 
+              //set application color scheme -  can edit these, if needed
               colorScheme: ColorScheme.fromSeed(
                 seedColor: palette.darkPen,
                 background: palette.backgroundMain,
@@ -224,6 +228,6 @@ class MyApp extends StatelessWidget {
   }
 }
 //TODO: DESTROY gorouter dependency
-//stateful widgets get rerendered very often, every time state is changed. 
+//stateful widgets get rerendered very often, every time state is changed.
 //CREATE screens + any elements that don't need ot be rerendered as stateless
-//REFACTOR ANIMATION AND STATE WIDGETS into separate stateful widgets 
+//REFACTOR ANIMATION AND STATE WIDGETS into separate stateful widgets
