@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:game_template/constants/strings.dart';
 import '../src/style/palette.dart';
 import 'package:provider/provider.dart';
+import 'package:drift/drift.dart' hide Column; 
 
 class GratitudeCard extends StatefulWidget {
   String incomingText = '';
