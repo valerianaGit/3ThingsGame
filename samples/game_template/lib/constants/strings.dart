@@ -4,8 +4,7 @@
 const kBack = 'Back';
 
 // C
-// Constant styles for card texts
-const kcardTextStyle = TextStyle(fontSize: 40.0, color: Colors.white);
+
 // D
 
 // E
@@ -41,6 +40,7 @@ const kPermanentMarker = 'Permanent Marker';
 // S
 const kSelectLevel = 'Select level';
 const kSettings = 'Settings';
+const kSave = 'Save';
 // T
 
 // U
