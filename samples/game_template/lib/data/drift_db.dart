@@ -1,4 +1,5 @@
 // DATA MODEL
+//GRATITUDES
 // content - text
 // date - DateTime
 
