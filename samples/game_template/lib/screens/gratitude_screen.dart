@@ -12,20 +12,25 @@ class GratitudeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-body: Row(
-  children: [
-  // dragon asset
-  SizedBox(height: null, width: 80.0,), 
-  // Column 3 gratitude 
-Column(
-  children: [
-    GratitudeCard(),
-    GratitudeCard(),
-    GratitudeCard(),
-  ],
-),
-  ],
-
+body: SafeArea(
+  child: Row(
+    children: [
+    // dragon asset
+    SizedBox(height: 200.0, width: 80.0,), 
+    // Column 3 gratitude 
+  Column(
+    //TODO: render object size missing
+    mainAxisAlignment: MainAxisAlignment.center,
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      GratitudeCard(),
+      GratitudeCard(),
+      GratitudeCard(),
+    ],
+  ),
+    ],
+  
+  ),
 ),
 //TODO: FLOATING ACTION BUTTON - to store the gratitudes -> pregnancy journal 
     )

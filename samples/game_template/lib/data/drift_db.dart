@@ -6,12 +6,13 @@
 
 //Use [ flutter pub run build_runner build ] to generate db_g file 
 //https://drift.simonbinder.eu/docs/getting-started/starting_with_sql/#what-drift-generates
-import 'dart:ffi';
+//import 'dart:ffi';
 import 'package:drift/drift.dart';
+import 'package:flutter/material.dart'as prefix;
 import 'package:game_template/constants/strings.dart';
 import 'dart:io'; // needed to generate/find a path to db
 import 'package:drift/native.dart';
-//import 'package:flutter/material.dart' as prefix;
+
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as p; // needed to generate/find a path to db
 // import generated file by drift
@@ -25,8 +26,9 @@ class Gratitudes extends Table {
 }
 
 @DriftDatabase(tables: [Gratitudes])
-class GratitudesDatabase extends _$GratitudesDatabase {
+class GratitudesDatabase extends _$GratitudesDatabase with prefix.ChangeNotifier {
   GratitudesDatabase() : super(_openConnection());
+  @override
   int get schemaVersion => 1;
 
   // QUERIES

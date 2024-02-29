@@ -135,12 +135,6 @@ Future<void> main() async {
 Logger _log = Logger('main.dart');
 
 class MyApp extends StatelessWidget {
-  final PlayerProgressPersistence playerProgressPersistence;
-  final SettingsPersistence settingsPersistence;
-  final GamesServicesController? gamesServicesController;
-  final InAppPurchaseController? inAppPurchaseController;
-  final AdsController? adsController;
-
   const MyApp({
     required this.playerProgressPersistence,
     required this.settingsPersistence,
@@ -149,6 +143,12 @@ class MyApp extends StatelessWidget {
     required this.gamesServicesController,
     super.key,
   });
+
+  final AdsController? adsController;
+  final GamesServicesController? gamesServicesController;
+  final InAppPurchaseController? inAppPurchaseController;
+  final PlayerProgressPersistence playerProgressPersistence;
+  final SettingsPersistence settingsPersistence;
 
   @override
   Widget build(BuildContext context) {
@@ -197,8 +197,8 @@ class MyApp extends StatelessWidget {
           Provider(
             create: (context) => Palette(),
           ),
-          Provider(
-            create: (context) => Gratitudes(),
+          ChangeNotifierProvider(
+            create: (context) => GratitudesDatabase(),
           ),
         ],
         child: Builder(builder: (context) {
