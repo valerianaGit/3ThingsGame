@@ -8,14 +8,14 @@ const kBack = 'Back';
 // D
 
 // E
-const kElfPicture = 'elf_pic.jpeg';
+const kElfPicture = 'images/elf_pic.jpeg';
 // F
 const kFeed = 'Feed';
 // G
 const kGameTitle = 'Dragons Need Rest Too';
 
 // H
-const kHeal = 'Heal';
+const kHeal = 'Ground'; // update name 
 // I
 
 // J
@@ -25,7 +25,7 @@ const kHeal = 'Heal';
 // L
 
 // M
-const kMind = 'Mind';
+const kMind = 'Gratitude'; // update name
 // N
 
 // O

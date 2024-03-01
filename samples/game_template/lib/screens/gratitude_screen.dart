@@ -29,7 +29,10 @@ class _GratitudeScreenState extends State<GratitudeScreen> {
             child: Row(
               children: [
                 // dragon asset
-                Image.asset(kElfPicture),
+                SizedBox(
+                  width: 100.0,
+                  child: Image.asset(kElfPicture),),
+                //Image(image: NetworkImage(kDragonImage),),
                 // SizedBox(
                 //   height: 200.0,
                 //   width: 80.0,
@@ -53,12 +56,12 @@ class _GratitudeScreenState extends State<GratitudeScreen> {
               //TODO: Save the context into the database when pressed
               // maybe I can use a callback ?
 
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => JournalEntryScreen(),
-                ),
-              );
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(
+              //     ///builder: (context) => JournalEntryScreen(),
+              //   ),
+              // );
             },
             tooltip: 'New entry',
             child: const Icon(Icons.add),
