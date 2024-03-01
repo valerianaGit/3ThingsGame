@@ -8,7 +8,7 @@ const kBack = 'Back';
 // D
 
 // E
-
+const kElfPicture = 'elf_pic.jpeg';
 // F
 const kFeed = 'Feed';
 // G
