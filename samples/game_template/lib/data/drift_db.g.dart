@@ -18,11 +18,23 @@ class $GratitudesTable extends Gratitudes
       requiredDuringInsert: false,
       defaultConstraints:
           GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
-  static const VerificationMeta _contentMeta =
-      const VerificationMeta('content');
+  static const VerificationMeta _gratitudeEntry1Meta =
+      const VerificationMeta('gratitudeEntry1');
   @override
-  late final GeneratedColumn<String> content = GeneratedColumn<String>(
-      'content', aliasedName, true,
+  late final GeneratedColumn<String> gratitudeEntry1 = GeneratedColumn<String>(
+      'gratitude_entry1', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _gratitudeEntry2Meta =
+      const VerificationMeta('gratitudeEntry2');
+  @override
+  late final GeneratedColumn<String> gratitudeEntry2 = GeneratedColumn<String>(
+      'gratitude_entry2', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _gratitudeEntry3Meta =
+      const VerificationMeta('gratitudeEntry3');
+  @override
+  late final GeneratedColumn<String> gratitudeEntry3 = GeneratedColumn<String>(
+      'gratitude_entry3', aliasedName, true,
       type: DriftSqlType.string, requiredDuringInsert: false);
   static const VerificationMeta _dateMeta = const VerificationMeta('date');
   @override
@@ -30,7 +42,8 @@ class $GratitudesTable extends Gratitudes
       'date', aliasedName, true,
       type: DriftSqlType.dateTime, requiredDuringInsert: false);
   @override
-  List<GeneratedColumn> get $columns => [id, content, date];
+  List<GeneratedColumn> get $columns =>
+      [id, gratitudeEntry1, gratitudeEntry2, gratitudeEntry3, date];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
@@ -44,9 +57,23 @@ class $GratitudesTable extends Gratitudes
     if (data.containsKey('id')) {
       context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
     }
-    if (data.containsKey('content')) {
-      context.handle(_contentMeta,
-          content.isAcceptableOrUnknown(data['content']!, _contentMeta));
+    if (data.containsKey('gratitude_entry1')) {
+      context.handle(
+          _gratitudeEntry1Meta,
+          gratitudeEntry1.isAcceptableOrUnknown(
+              data['gratitude_entry1']!, _gratitudeEntry1Meta));
+    }
+    if (data.containsKey('gratitude_entry2')) {
+      context.handle(
+          _gratitudeEntry2Meta,
+          gratitudeEntry2.isAcceptableOrUnknown(
+              data['gratitude_entry2']!, _gratitudeEntry2Meta));
+    }
+    if (data.containsKey('gratitude_entry3')) {
+      context.handle(
+          _gratitudeEntry3Meta,
+          gratitudeEntry3.isAcceptableOrUnknown(
+              data['gratitude_entry3']!, _gratitudeEntry3Meta));
     }
     if (data.containsKey('date')) {
       context.handle(
@@ -63,8 +90,12 @@ class $GratitudesTable extends Gratitudes
     return Gratitude(
       id: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
-      content: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}content']),
+      gratitudeEntry1: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}gratitude_entry1']),
+      gratitudeEntry2: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}gratitude_entry2']),
+      gratitudeEntry3: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}gratitude_entry3']),
       date: attachedDatabase.typeMapping
           .read(DriftSqlType.dateTime, data['${effectivePrefix}date']),
     );
@@ -78,15 +109,28 @@ class $GratitudesTable extends Gratitudes
 
 class Gratitude extends DataClass implements Insertable<Gratitude> {
   final int id;
-  final String? content;
+  final String? gratitudeEntry1;
+  final String? gratitudeEntry2;
+  final String? gratitudeEntry3;
   final DateTime? date;
-  const Gratitude({required this.id, this.content, this.date});
+  const Gratitude(
+      {required this.id,
+      this.gratitudeEntry1,
+      this.gratitudeEntry2,
+      this.gratitudeEntry3,
+      this.date});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
     map['id'] = Variable<int>(id);
-    if (!nullToAbsent || content != null) {
-      map['content'] = Variable<String>(content);
+    if (!nullToAbsent || gratitudeEntry1 != null) {
+      map['gratitude_entry1'] = Variable<String>(gratitudeEntry1);
+    }
+    if (!nullToAbsent || gratitudeEntry2 != null) {
+      map['gratitude_entry2'] = Variable<String>(gratitudeEntry2);
+    }
+    if (!nullToAbsent || gratitudeEntry3 != null) {
+      map['gratitude_entry3'] = Variable<String>(gratitudeEntry3);
     }
     if (!nullToAbsent || date != null) {
       map['date'] = Variable<DateTime>(date);
@@ -97,9 +141,15 @@ class Gratitude extends DataClass implements Insertable<Gratitude> {
   GratitudesCompanion toCompanion(bool nullToAbsent) {
     return GratitudesCompanion(
       id: Value(id),
-      content: content == null && nullToAbsent
+      gratitudeEntry1: gratitudeEntry1 == null && nullToAbsent
           ? const Value.absent()
-          : Value(content),
+          : Value(gratitudeEntry1),
+      gratitudeEntry2: gratitudeEntry2 == null && nullToAbsent
+          ? const Value.absent()
+          : Value(gratitudeEntry2),
+      gratitudeEntry3: gratitudeEntry3 == null && nullToAbsent
+          ? const Value.absent()
+          : Value(gratitudeEntry3),
       date: date == null && nullToAbsent ? const Value.absent() : Value(date),
     );
   }
@@ -109,7 +159,9 @@ class Gratitude extends DataClass implements Insertable<Gratitude> {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return Gratitude(
       id: serializer.fromJson<int>(json['id']),
-      content: serializer.fromJson<String?>(json['content']),
+      gratitudeEntry1: serializer.fromJson<String?>(json['gratitudeEntry1']),
+      gratitudeEntry2: serializer.fromJson<String?>(json['gratitudeEntry2']),
+      gratitudeEntry3: serializer.fromJson<String?>(json['gratitudeEntry3']),
       date: serializer.fromJson<DateTime?>(json['date']),
     );
   }
@@ -118,72 +170,105 @@ class Gratitude extends DataClass implements Insertable<Gratitude> {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
       'id': serializer.toJson<int>(id),
-      'content': serializer.toJson<String?>(content),
+      'gratitudeEntry1': serializer.toJson<String?>(gratitudeEntry1),
+      'gratitudeEntry2': serializer.toJson<String?>(gratitudeEntry2),
+      'gratitudeEntry3': serializer.toJson<String?>(gratitudeEntry3),
       'date': serializer.toJson<DateTime?>(date),
     };
   }
 
   Gratitude copyWith(
           {int? id,
-          Value<String?> content = const Value.absent(),
+          Value<String?> gratitudeEntry1 = const Value.absent(),
+          Value<String?> gratitudeEntry2 = const Value.absent(),
+          Value<String?> gratitudeEntry3 = const Value.absent(),
           Value<DateTime?> date = const Value.absent()}) =>
       Gratitude(
         id: id ?? this.id,
-        content: content.present ? content.value : this.content,
+        gratitudeEntry1: gratitudeEntry1.present
+            ? gratitudeEntry1.value
+            : this.gratitudeEntry1,
+        gratitudeEntry2: gratitudeEntry2.present
+            ? gratitudeEntry2.value
+            : this.gratitudeEntry2,
+        gratitudeEntry3: gratitudeEntry3.present
+            ? gratitudeEntry3.value
+            : this.gratitudeEntry3,
         date: date.present ? date.value : this.date,
       );
   @override
   String toString() {
     return (StringBuffer('Gratitude(')
           ..write('id: $id, ')
-          ..write('content: $content, ')
+          ..write('gratitudeEntry1: $gratitudeEntry1, ')
+          ..write('gratitudeEntry2: $gratitudeEntry2, ')
+          ..write('gratitudeEntry3: $gratitudeEntry3, ')
           ..write('date: $date')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode => Object.hash(id, content, date);
+  int get hashCode =>
+      Object.hash(id, gratitudeEntry1, gratitudeEntry2, gratitudeEntry3, date);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is Gratitude &&
           other.id == this.id &&
-          other.content == this.content &&
+          other.gratitudeEntry1 == this.gratitudeEntry1 &&
+          other.gratitudeEntry2 == this.gratitudeEntry2 &&
+          other.gratitudeEntry3 == this.gratitudeEntry3 &&
           other.date == this.date);
 }
 
 class GratitudesCompanion extends UpdateCompanion<Gratitude> {
   final Value<int> id;
-  final Value<String?> content;
+  final Value<String?> gratitudeEntry1;
+  final Value<String?> gratitudeEntry2;
+  final Value<String?> gratitudeEntry3;
   final Value<DateTime?> date;
   const GratitudesCompanion({
     this.id = const Value.absent(),
-    this.content = const Value.absent(),
+    this.gratitudeEntry1 = const Value.absent(),
+    this.gratitudeEntry2 = const Value.absent(),
+    this.gratitudeEntry3 = const Value.absent(),
     this.date = const Value.absent(),
   });
   GratitudesCompanion.insert({
     this.id = const Value.absent(),
-    this.content = const Value.absent(),
+    this.gratitudeEntry1 = const Value.absent(),
+    this.gratitudeEntry2 = const Value.absent(),
+    this.gratitudeEntry3 = const Value.absent(),
     this.date = const Value.absent(),
   });
   static Insertable<Gratitude> custom({
     Expression<int>? id,
-    Expression<String>? content,
+    Expression<String>? gratitudeEntry1,
+    Expression<String>? gratitudeEntry2,
+    Expression<String>? gratitudeEntry3,
     Expression<DateTime>? date,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
-      if (content != null) 'content': content,
+      if (gratitudeEntry1 != null) 'gratitude_entry1': gratitudeEntry1,
+      if (gratitudeEntry2 != null) 'gratitude_entry2': gratitudeEntry2,
+      if (gratitudeEntry3 != null) 'gratitude_entry3': gratitudeEntry3,
       if (date != null) 'date': date,
     });
   }
 
   GratitudesCompanion copyWith(
-      {Value<int>? id, Value<String?>? content, Value<DateTime?>? date}) {
+      {Value<int>? id,
+      Value<String?>? gratitudeEntry1,
+      Value<String?>? gratitudeEntry2,
+      Value<String?>? gratitudeEntry3,
+      Value<DateTime?>? date}) {
     return GratitudesCompanion(
       id: id ?? this.id,
-      content: content ?? this.content,
+      gratitudeEntry1: gratitudeEntry1 ?? this.gratitudeEntry1,
+      gratitudeEntry2: gratitudeEntry2 ?? this.gratitudeEntry2,
+      gratitudeEntry3: gratitudeEntry3 ?? this.gratitudeEntry3,
       date: date ?? this.date,
     );
   }
@@ -194,8 +279,14 @@ class GratitudesCompanion extends UpdateCompanion<Gratitude> {
     if (id.present) {
       map['id'] = Variable<int>(id.value);
     }
-    if (content.present) {
-      map['content'] = Variable<String>(content.value);
+    if (gratitudeEntry1.present) {
+      map['gratitude_entry1'] = Variable<String>(gratitudeEntry1.value);
+    }
+    if (gratitudeEntry2.present) {
+      map['gratitude_entry2'] = Variable<String>(gratitudeEntry2.value);
+    }
+    if (gratitudeEntry3.present) {
+      map['gratitude_entry3'] = Variable<String>(gratitudeEntry3.value);
     }
     if (date.present) {
       map['date'] = Variable<DateTime>(date.value);
@@ -207,7 +298,9 @@ class GratitudesCompanion extends UpdateCompanion<Gratitude> {
   String toString() {
     return (StringBuffer('GratitudesCompanion(')
           ..write('id: $id, ')
-          ..write('content: $content, ')
+          ..write('gratitudeEntry1: $gratitudeEntry1, ')
+          ..write('gratitudeEntry2: $gratitudeEntry2, ')
+          ..write('gratitudeEntry3: $gratitudeEntry3, ')
           ..write('date: $date')
           ..write(')'))
         .toString();

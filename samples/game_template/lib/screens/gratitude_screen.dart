@@ -79,7 +79,9 @@ class GratitudeScreenState extends State<GratitudeScreen> {
               //TODO: Save the context into the database when pressed
     database.insertNewCompanionGratitude(
       GratitudesCompanion(
-        content: Value(_gratitude1),
+        gratitudeEntry1: Value(_gratitude1),
+        gratitudeEntry2: Value(_gratitude2),
+        gratitudeEntry3: Value(_gratitude3),
         date: Value(DateTime.now()),
       ),
     );

@@ -1,10 +1,13 @@
 // DATA MODEL
-//GRATITUDES
-// content - text
-// date - DateTime
+// Gratitudes 
+// id
+// text entry 1 
+// text entry 2 
+// text entry 3 
+// date 
+// //
 
-
-//Use [ flutter pub run build_runner build ] to generate db_g file 
+//Use [ dart run build_runner build ] to generate db_g file 
 //https://drift.simonbinder.eu/docs/getting-started/starting_with_sql/#what-drift-generates
 //import 'dart:ffi';
 import 'package:drift/drift.dart';
@@ -20,7 +23,9 @@ part 'drift_db.g.dart';
 
 class Gratitudes extends Table {
   IntColumn get id => integer().autoIncrement()();
-  TextColumn get content => text().nullable()();
+  TextColumn get gratitudeEntry1 => text().nullable()();
+  TextColumn get gratitudeEntry2 => text().nullable()();
+  TextColumn get gratitudeEntry3 => text().nullable()();
   DateTimeColumn get date => dateTime().nullable()();
 
 }
