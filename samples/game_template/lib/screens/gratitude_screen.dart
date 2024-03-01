@@ -32,7 +32,21 @@ body: SafeArea(
   
   ),
 ),
-//TODO: FLOATING ACTION BUTTON - to store the gratitudes -> pregnancy journal 
+floatingActionButton: FloatingActionButton(
+  onPressed: () {
+    //TODO: Save the context into the database when pressed 
+    // maybe I can use a callback ?
+    
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => JournalEntryScreen(),
+            ),
+          );
+        },,
+            tooltip: 'New entry',
+        child: const Icon(Icons.add),),
+
     )
     ;
   }
