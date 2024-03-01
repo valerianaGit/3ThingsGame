@@ -68,21 +68,23 @@ class _GratitudeCardState extends State<GratitudeCard> {
     );
   }
 
-  TextField scrollableTextField(Color cursorColor) {
+  Widget scrollableTextField(Color cursorColor) {
     //makes textfield scrollable - wrap in Expanded widget + maxlines = null
-    return TextField(
-      controller: txtController,
-      maxLines: null, //wrap text
-      autofocus: true,
-      autocorrect: true,
-      cursorColor: cursorColor,
-      decoration: const InputDecoration(
-        border: OutlineInputBorder(),
-        labelText: kGameTitle,
+    return Expanded(
+      child: TextField(
+        controller: txtController,
+        maxLines: null, //wrap text
+        autofocus: true,
+        autocorrect: true,
+        cursorColor: cursorColor,
+        decoration: const InputDecoration(
+          border: OutlineInputBorder(),
+          labelText: kGameTitle,
+        ),
+        onChanged: (newValue) {
+          newContent = newValue;
+        },
       ),
-      onChanged: (newValue) {
-        newContent = newValue;
-      },
     );
   }
 
@@ -91,7 +93,6 @@ class _GratitudeCardState extends State<GratitudeCard> {
 //we will only have one profile
   void saveButtonActionWith(BuildContext context, GratitudesDatabase database) {
     if (widget.incomingText == '' && newContent != '') {
-//TODO: UPDATE THIS postcompanion to store correct values for SENDER AND RECEIVER
       database.insertNewCompanionGratitude(
         GratitudesCompanion(
           content: Value(newContent),
@@ -131,7 +132,8 @@ class _GratitudeCardState extends State<GratitudeCard> {
                   height: 32.0,
                 ),
             
-                getWidget(palette.redPen, palette.darkPen),
+                //getWidget(palette.redPen, palette.darkPen),
+                scrollableTextField(palette.redPen),
             
                 const SizedBox(
                   width: 50.0, // TODO: MISSING CONSTRAINT 
