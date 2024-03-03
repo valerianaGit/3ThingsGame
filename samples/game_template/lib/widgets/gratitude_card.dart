@@ -15,20 +15,18 @@ class GratitudeCard extends StatelessWidget {
 
   Widget scrollableTextField(Color cursorColor) {
     //makes textfield scrollable - wrap in Expanded widget + maxlines = null
-    return Expanded(
-      child: TextField(
-        maxLines: null, //wrap text
-        autofocus: true,
-        autocorrect: true,
-        cursorColor: cursorColor,
-        decoration: const InputDecoration(
-          border: OutlineInputBorder(),
-          labelText: kGameTitle,
-        ),
-        onSubmitted: (value) {
-          callback(value);
-        },
+    return TextField(
+      maxLines: null, //wrap text
+      autofocus: true,
+      autocorrect: true,
+      cursorColor: cursorColor,
+      decoration: const InputDecoration(
+        border: OutlineInputBorder(),
+        labelText: kGameTitle,
       ),
+      onSubmitted: (value) {
+        callback(value);
+      },
     );
   }
 
@@ -51,6 +49,7 @@ class GratitudeCard extends StatelessWidget {
                 Container(
                   height:
                       32.0, // we'll see if it can still scroll with this container widget
+                      width: 32.0,
                   child: scrollableTextField(palette.redPen),
                 ),
                 const SizedBox(
