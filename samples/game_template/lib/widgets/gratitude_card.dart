@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:game_template/data/drift_db.dart';
 //import 'package:intl/intl.dart';
 import 'package:game_template/constants/strings.dart';
@@ -47,11 +48,10 @@ class GratitudeCard extends StatelessWidget {
                   height: 16.0,
                 ),
                 Container(
-                  height:
-                      32.0, // we'll see if it can still scroll with this container widget
-                      width: 32.0,
-                  child: scrollableTextField(palette.redPen),
-                ),
+                  height: 64.0,
+                  width: 120.0,
+                  color: palette.redPen,
+                  child: scrollableTextField(palette.redPen)),
                 const SizedBox(
                   width: 50.0,
                   height: 16.0,
