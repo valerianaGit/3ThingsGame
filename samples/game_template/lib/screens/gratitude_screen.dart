@@ -34,6 +34,7 @@ class GratitudeScreenState extends State<GratitudeScreen> {
   @override
   Widget build(BuildContext context) {
     final palette = context.watch<Palette>();
+    final TextEditingController controller = TextEditingController();
     return Consumer<GratitudesDatabase>(
       builder:
           (BuildContext context, GratitudesDatabase database, Widget? child) {
@@ -61,13 +62,20 @@ class GratitudeScreenState extends State<GratitudeScreen> {
                       callback: (val) => setState(() {
                         _gratitude1 = val;
                       }),
+                      textFieldController: controller,
                     ),
-                    GratitudeCard(   callback: (val) => setState(() {
+                    GratitudeCard(
+                      callback: (val) => setState(() {
                         _gratitude2 = val;
-                      }),),
-                    GratitudeCard(   callback: (val) => setState(() {
+                      }),
+                      textFieldController: controller,
+                    ),
+                    GratitudeCard(
+                      callback: (val) => setState(() {
                         _gratitude3 = val;
-                      }),),
+                      }),
+                      textFieldController: controller,
+                    ),
                   ],
                 ),
               ],
@@ -75,19 +83,19 @@ class GratitudeScreenState extends State<GratitudeScreen> {
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-
               //TODO: Save the context into the database when pressed
-    database.insertNewCompanionGratitude(
-      GratitudesCompanion(
-        gratitudeEntry1: Value(_gratitude1),
-        gratitudeEntry2: Value(_gratitude2),
-        gratitudeEntry3: Value(_gratitude3),
-        date: Value(DateTime.now()),
-      ),
-    );
+              database.insertNewCompanionGratitude(
+                GratitudesCompanion(
+                  gratitudeEntry1: Value(_gratitude1),
+                  gratitudeEntry2: Value(_gratitude2),
+                  gratitudeEntry3: Value(_gratitude3),
+                  date: Value(DateTime.now()),
+                ),
+              );
+              controller.clear();
             },
-            tooltip: 'New entry',
-            child: const Icon(Icons.add),
+            tooltip: 'Save',
+            child: const Icon(Icons.check),
           ),
         );
       },

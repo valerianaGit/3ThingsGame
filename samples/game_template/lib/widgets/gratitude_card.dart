@@ -11,12 +11,16 @@ typedef StringCallback = void Function(String val);
 
 class GratitudeCard extends StatelessWidget {
   final StringCallback callback;
+  final TextEditingController textFieldController = TextEditingController();
   // ignore: use_key_in_widget_constructors
-  GratitudeCard({required this.callback});
+  GratitudeCard({required this.callback, required textFieldController});
 
   Widget scrollableTextField(Color cursorColor) {
     //makes textfield scrollable - wrap in Expanded widget + maxlines = null
+    // TODO: fIX SIZE OF CARDS , FIX SCROLLABILITY ,
+    //USED TO USE EXPANED, BUT IT SEEMS IT CANT BE USED AND STILL IT DOES NOT SCROLL
     return TextField(
+controller: textFieldController,
       maxLines: null, //wrap text
       autofocus: true,
       autocorrect: true,
@@ -26,6 +30,7 @@ class GratitudeCard extends StatelessWidget {
         labelText: kGameTitle,
       ),
       onSubmitted: (value) {
+        print(value);
         callback(value);
       },
     );
@@ -37,28 +42,12 @@ class GratitudeCard extends StatelessWidget {
     return Consumer<GratitudesDatabase>(
       builder:
           (BuildContext context, GratitudesDatabase database, Widget? child) {
-        return Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const SizedBox(
-                  width: 50.0,
-                  height: 16.0,
-                ),
-                Container(
-                  height: 64.0,
-                  width: 120.0,
-                  color: palette.redPen,
-                  child: scrollableTextField(palette.redPen)),
-                const SizedBox(
-                  width: 50.0,
-                  height: 16.0,
-                ),
-              ],
-            ),
-          ),
+        return Card(
+          clipBehavior: Clip.hardEdge,
+          child: Container(
+            width: 100.0,
+            height: 32.0,
+            child: scrollableTextField(palette.redPen)),
         );
       },
     );
