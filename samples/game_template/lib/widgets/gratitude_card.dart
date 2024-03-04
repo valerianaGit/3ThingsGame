@@ -43,10 +43,11 @@ controller: textFieldController,
       builder:
           (BuildContext context, GratitudesDatabase database, Widget? child) {
         return Card(
-          clipBehavior: Clip.hardEdge,
+          //clipBehavior: Clip.hardEdge,
           child: Container(
-            width: 100.0,
-            height: 32.0,
+            //padding: EdgeInsets.all(20.0),
+            width: 248.0,
+            height: 64.0,
             child: scrollableTextField(palette.redPen)),
         );
       },
