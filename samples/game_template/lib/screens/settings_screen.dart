@@ -12,6 +12,7 @@ import '../src/style/palette.dart';
 import '../src/style/responsive_screen.dart';
 import '../src/settings/custom_name_dialog.dart';
 import '../src/settings/settings.dart';
+import 'package:game_template/constants/strings.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -101,12 +102,8 @@ class SettingsScreen extends StatelessWidget {
             _gap,
           ],
         ),
-        rectangularMenuArea: FilledButton(
-          onPressed: () {
-            GoRouter.of(context).pop();
-          },
-          child: const Text('Back'),
-        ),
+        rectangularMenuArea: Center(child: const Text(kGameTitle)),
+     
       ),
     );
   }
