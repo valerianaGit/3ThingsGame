@@ -120,7 +120,7 @@ SizedBox(
                   color: Colors.orange, // button color
                   child: InkWell(
                     splashColor: Colors.yellow, // inkwell color
-                    child: SizedBox(width: 80.0, height: 80.0, child: getIcon),
+                    child: SizedBox(width: 60.0, height: 60.0, child: getIcon),
                     onTap: () {
                       startTimeout();
                     },
