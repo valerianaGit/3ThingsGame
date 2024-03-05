@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import '../src/style/palette.dart';
 import 'package:game_template/constants/strings.dart';
@@ -93,25 +94,31 @@ class _TimerClockState extends State<TimerClock > {
                   textAlign: TextAlign.center,
                 ),
               ),
+
+Stack(
+  children: [
 SizedBox(
-                height: 100.0,
-                width: 100.0,
-                child: CircularProgressIndicator(
-                  
-                  backgroundColor: palette.accentDeepPurple, // time left color
-                 color: palette.darkestGrayBackground,// time passed color - 
-                 //if I make it same as background, it will look transparent
-                  value: timerDouble,
-                  semanticsLabel: timerText,
+                  height: 300.0,
+                  width: 300.0,
+                  child: CircularProgressIndicator(
+                    
+                    backgroundColor: palette.accentDeepPurple, // time left color
+                   color: palette.darkestGrayBackground,// time passed color - 
+                   //if I make it same as background, it will look transparent
+                    value: timerDouble,
+                    semanticsLabel: timerText,
+                  ),
                 ),
-              ),
-                            SizedBox(
-                height: 32.0,
-              ),
                               SizedBox(
-                  width: 200.0,
+                  width: 300.0,
                   child: Image.asset(kDragonPicture),
                 ),
+  ],
+),
+              //               SizedBox(
+              //   height: 32.0,
+              // ),
+
               SizedBox(
                 height: 32.0,
               ),
