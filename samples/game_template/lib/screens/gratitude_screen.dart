@@ -45,7 +45,7 @@ class GratitudeScreenState extends State<GratitudeScreen> {
                 // dragon asset
                 SizedBox(
                   width: 100.0,
-                  child: Image.asset(kElfPicture),
+                  child: Image.asset(kDragonPicture),
                 ),
                 //Image(image: NetworkImage(kDragonImage),),
                 // SizedBox(

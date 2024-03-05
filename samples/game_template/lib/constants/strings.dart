@@ -9,7 +9,7 @@ const kBreathingInstructions =' Breath in for 5 seconds, hold for 5 seconds, bre
 // D
 const kDragonPicture = 'images/dragon1.png';
 // E
-const kElfPicture = 'images/elf_pic.jpeg';
+
 // F
 const kFeed = 'Feed';
 // G

@@ -11,7 +11,7 @@ class GroundScreen extends StatelessWidget {
      final palette = context.watch<Palette>();
     return Scaffold(
       backgroundColor: palette.trueWhite,
-      body: Image.asset(kElfPicture),
+      body: Image.asset(kDragonPicture), //Describe your surroundings, everything you see during the meditation.',
     );
   }
 }
