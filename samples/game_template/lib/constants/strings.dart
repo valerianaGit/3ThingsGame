@@ -6,7 +6,7 @@ const kBack = 'Back';
 // C
 
 // D
-
+const kDragonPicture = 'images/dragon1.png';
 // E
 const kElfPicture = 'images/elf_pic.jpeg';
 // F
