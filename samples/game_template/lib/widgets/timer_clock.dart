@@ -40,7 +40,7 @@ class _TimerClockState extends State<TimerClock> {
     return text;
   }
 
-    Icon get getIcon {
+  Icon get getIcon {
     Icon icon = Icon(Icons.play_arrow);
     setState(() {
       if (startPause == false) {
@@ -70,16 +70,27 @@ class _TimerClockState extends State<TimerClock> {
       });
     });
   }
-    @override
+
+  @override
   void initState() {
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
-        final palette = context.watch<Palette>();
+    final palette = context.watch<Palette>();
     return Scaffold(
       appBar: AppBar(
-        title: Text('Grounding Meditation'), //TODO: GET rid of app bar and create this tittle like the settings screen
+        title: 
+                    const Text(
+              kGroundingMeditation,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontFamily: 'Permanent Marker',
+                fontSize: 28.0,
+                height: 1,
+              ),
+            ),
       ),
       body: SafeArea(
         child: Center(
@@ -90,31 +101,35 @@ class _TimerClockState extends State<TimerClock> {
                 padding: EdgeInsets.only(
                     top: 16.0, left: 64.0, right: 64.0, bottom: 32.0),
                 child: Text(
-                  ' BREATH IN, HOLD AND OUT FOR 5 SECONDS',//Describe your surroundings, everything you see during the meditation.', // TODO: HAVE GEMINI add something by remi here 
+                  ' BREATH IN, HOLD AND OUT FOR 5 SECONDS', //Describe your surroundings, everything you see during the meditation.', // TODO: HAVE GEMINI add something by remi here
                   textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: palette.trueWhite,
+                  ),
                 ),
               ),
 
-Stack(
-  children: [
-SizedBox(
-                  height: 300.0,
-                  width: 300.0,
-                  child: CircularProgressIndicator(
-                    
-                    backgroundColor: palette.accentDeepPurple, // time left color
-                   color: palette.darkestGrayBackground,// time passed color - 
-                   //if I make it same as background, it will look transparent
-                    value: timerDouble,
-                    semanticsLabel: timerText,
+              Stack(
+                children: [
+                  SizedBox(
+                    height: 300.0,
+                    width: 300.0,
+                    child: CircularProgressIndicator(
+                      backgroundColor:
+                          palette.accentDeepPurple, // time left color
+                      color:
+                          palette.darkestGrayBackground, // time passed color -
+                      //if I make it same as background, it will look transparent
+                      value: timerDouble,
+                      semanticsLabel: timerText,
+                    ),
                   ),
-                ),
-                              SizedBox(
-                  width: 300.0,
-                  child: Image.asset(kDragonPicture),
-                ),
-  ],
-),
+                  SizedBox(
+                    width: 300.0,
+                    child: Image.asset(kDragonPicture),
+                  ),
+                ],
+              ),
               //               SizedBox(
               //   height: 32.0,
               // ),
@@ -158,4 +173,3 @@ SizedBox(
     );
   }
 }
-
