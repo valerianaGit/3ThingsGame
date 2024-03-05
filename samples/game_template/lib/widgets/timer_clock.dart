@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../src/style/palette.dart';
+import 'package:game_template/constants/strings.dart';
 
 //TODO: CREATE string constants here
 
@@ -51,6 +52,7 @@ class _TimerClockState extends State<TimerClock > {
   }
 
   startTimeout([int milliseconds = 100]) {
+    //TODO: ADD BREATH SOUND
     var duration = interval;
     startPause = !startPause;
     print('pause $startPause');
@@ -76,7 +78,7 @@ class _TimerClockState extends State<TimerClock > {
         final palette = context.watch<Palette>();
     return Scaffold(
       appBar: AppBar(
-        title: Text('Grounding Meditation'),
+        title: Text('Grounding Meditation'), //TODO: GET rid of app bar and create this tittle like the settings screen
       ),
       body: SafeArea(
         child: Center(
@@ -87,16 +89,17 @@ class _TimerClockState extends State<TimerClock > {
                 padding: EdgeInsets.only(
                     top: 16.0, left: 64.0, right: 64.0, bottom: 32.0),
                 child: Text(
-                  'Describe your surroundings, everything you see during the meditation.',
+                  ' BREATH IN, HOLD AND OUT FOR 5 SECONDS',//Describe your surroundings, everything you see during the meditation.', // TODO: HAVE GEMINI add something by remi here 
                   textAlign: TextAlign.center,
                 ),
               ),
 SizedBox(
-                height: 300.0,
-                width: 300.0,
+                height: 100.0,
+                width: 100.0,
                 child: CircularProgressIndicator(
-                  backgroundColor: palette.redPen, // time left color
-                 color: palette.trueWhite,// time passed color - 
+                  
+                  backgroundColor: palette.accentDeepPurple, // time left color
+                 color: palette.darkestGrayBackground,// time passed color - 
                  //if I make it same as background, it will look transparent
                   value: timerDouble,
                   semanticsLabel: timerText,
@@ -107,7 +110,7 @@ SizedBox(
               ),
                               SizedBox(
                   width: 200.0,
-                  child: Image.asset(kElfPicture),
+                  child: Image.asset(kDragonPicture),
                 ),
               SizedBox(
                 height: 32.0,
@@ -124,9 +127,9 @@ SizedBox(
               ),
               ClipOval(
                 child: Material(
-                  color: Colors.orange, // button color
+                  color: palette.accentDeepPurple, // button color
                   child: InkWell(
-                    splashColor: Colors.yellow, // inkwell color
+                    splashColor: palette.purplePink, // inkwell color
                     child: SizedBox(width: 60.0, height: 60.0, child: getIcon),
                     onTap: () {
                       startTimeout();
@@ -148,3 +151,4 @@ SizedBox(
     );
   }
 }
+
