@@ -127,7 +127,7 @@ SizedBox(
                 style: TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,
-                    color: Colors.blueGrey),
+                    color: palette.trueWhite),
               ),
               SizedBox(
                 height: 16.0,
