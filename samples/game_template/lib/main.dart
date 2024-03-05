@@ -209,8 +209,8 @@ class MyApp extends StatelessWidget {
             theme: ThemeData.from(
               //set application color scheme -  can edit these, if needed
               colorScheme: ColorScheme.fromSeed(
-                seedColor: palette.darkPen,
-                background: palette.backgroundMain,
+                seedColor: palette.trueWhite,
+                background: palette.darkestGrayBackground,
               ),
               textTheme: TextTheme(
                 bodyMedium: TextStyle(
