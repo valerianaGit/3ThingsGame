@@ -13,9 +13,10 @@ const kElfPicture = 'images/elf_pic.jpeg';
 const kFeed = 'Feed';
 // G
 const kGameTitle = 'Dragons Need Rest Too';
+const kGroundingMeditation = 'Grounding Meditation';
 
 // H
-const kHeal = 'Ground'; // update name 
+const kHeal = 'Ground'; // update name
 // I
 
 // J
