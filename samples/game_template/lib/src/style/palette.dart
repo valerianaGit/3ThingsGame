@@ -28,6 +28,8 @@ class Palette {
   Color get redPen => const Color(0xFFd10841);
   Color get inkFullOpacity => const Color(0xff352b42);
   Color get ink => const Color(0xee352b42);
+  Color get darkestGrayBackground => const Color(0xff2d383a); // application background
+  Color get accentDeepPurple => const Color(0xff672940); // application accents
   Color get backgroundMain => const Color(0xffffffd1);
   Color get backgroundLevelSelection => const Color(0xffa2dcc7);
   Color get backgroundPlaySession => const Color(0xffffebb5);

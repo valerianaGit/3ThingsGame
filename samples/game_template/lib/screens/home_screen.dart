@@ -58,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
             //background color is here and not in the main BottomNav code
             //when type: .shifting, the item's background color 
             //supercedes the main widget one  
-            backgroundColor: palette.redPen,
+            backgroundColor: palette.darkestGrayBackground,
            
           ),
  BottomNavigationBarItem(
