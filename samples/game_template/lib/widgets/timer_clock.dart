@@ -102,6 +102,13 @@ SizedBox(
                   semanticsLabel: timerText,
                 ),
               ),
+                            SizedBox(
+                height: 32.0,
+              ),
+                              SizedBox(
+                  width: 200.0,
+                  child: Image.asset(kElfPicture),
+                ),
               SizedBox(
                 height: 32.0,
               ),
