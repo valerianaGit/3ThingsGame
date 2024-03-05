@@ -163,13 +163,6 @@ class _TimerClockState extends State<TimerClock> {
           ),
         ),
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: () {
-      //     Navigator.pop(context);
-      //   },
-      //   tooltip: 'Done',
-      //   child: const Icon(Icons.check),
-      // ),
     );
   }
 }
