@@ -101,7 +101,7 @@ class _TimerClockState extends State<TimerClock> {
                 padding: EdgeInsets.only(
                     top: 16.0, left: 64.0, right: 64.0, bottom: 32.0),
                 child: Text(
-                  ' BREATH IN, HOLD AND OUT FOR 5 SECONDS', //Describe your surroundings, everything you see during the meditation.', // TODO: HAVE GEMINI add something by remi here
+                  kBreathingInstructions, // TODO: HAVE GEMINI add something by remi here
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: palette.trueWhite,
@@ -130,9 +130,6 @@ class _TimerClockState extends State<TimerClock> {
                   ),
                 ],
               ),
-              //               SizedBox(
-              //   height: 32.0,
-              // ),
 
               SizedBox(
                 height: 32.0,
