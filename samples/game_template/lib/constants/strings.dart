@@ -2,6 +2,7 @@
 
 // B
 const kBack = 'Back';
+const kBreathingInstructions =' Breath in for 5 seconds, hold for 5 seconds, breath out for 5 seconds';
 
 // C
 
