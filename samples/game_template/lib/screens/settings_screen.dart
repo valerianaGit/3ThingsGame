@@ -4,6 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:path/path.dart';
 import 'package:provider/provider.dart';
 
 import '../src/in_app_purchase/in_app_purchase.dart';
@@ -25,15 +26,16 @@ class SettingsScreen extends StatelessWidget {
     final palette = context.watch<Palette>();
 
     return Scaffold(
-      backgroundColor: palette.backgroundSettings,
+      backgroundColor: palette.darkestGrayBackground,
       body: ResponsiveScreen(
         squarishMainArea: ListView(
           children: [
             _gap,
             const Text(
-              'Settings',
+              kSettings,
               textAlign: TextAlign.center,
               style: TextStyle(
+                color: Colors.white,
                 fontFamily: 'Permanent Marker',
                 fontSize: 55,
                 height: 1,
@@ -41,21 +43,22 @@ class SettingsScreen extends StatelessWidget {
             ),
             _gap,
             const _NameChangeLine(
-              'Name',
+              kName,
             ),
             ValueListenableBuilder<bool>(
               valueListenable: settings.soundsOn,
               builder: (context, soundsOn, child) => _SettingsLine(
-                'Sound FX',
-                Icon(soundsOn ? Icons.graphic_eq : Icons.volume_off),
+                kSoundFX,
+                Icon(color: palette.trueWhite, soundsOn ? Icons.graphic_eq : Icons.volume_off),
                 onSelected: () => settings.toggleSoundsOn(),
               ),
             ),
             ValueListenableBuilder<bool>(
               valueListenable: settings.musicOn,
               builder: (context, musicOn, child) => _SettingsLine(
-                'Music',
-                Icon(musicOn ? Icons.music_note : Icons.music_off),
+                kMusic,
+                
+                Icon(color: palette.trueWhite, musicOn ? Icons.music_note : Icons.music_off),
                 onSelected: () => settings.toggleMusicOn(),
               ),
             ),
@@ -81,28 +84,33 @@ class SettingsScreen extends StatelessWidget {
                 };
               }
               return _SettingsLine(
-                'Remove ads',
+                kRemoveAds,
                 icon,
                 onSelected: callback,
               );
             }),
             _SettingsLine(
-              'Reset progress',
-              const Icon(Icons.delete),
+              kResetProgress,
+              const Icon(Icons.delete, color:Colors.white,),
               onSelected: () {
                 context.read<PlayerProgress>().reset();
 
                 final messenger = ScaffoldMessenger.of(context);
                 messenger.showSnackBar(
                   const SnackBar(
-                      content: Text('Player progress has been reset.')),
+                      content: Text(kPlayerProgressReset)),
                 );
               },
             ),
             _gap,
           ],
         ),
-        rectangularMenuArea: Center(child: const Text(kGameTitle)),
+        rectangularMenuArea: Center(child: const Text(kGameTitle, 
+                        style: TextStyle(
+                  fontFamily: 'Permanent Marker',
+                  fontSize: 25.0,
+                  color: Colors.white,
+                ))),
      
       ),
     );
@@ -130,6 +138,7 @@ class _NameChangeLine extends StatelessWidget {
                 style: const TextStyle(
                   fontFamily: 'Permanent Marker',
                   fontSize: 30,
+                  color: Colors.white,
                 )),
             const Spacer(),
             ValueListenableBuilder(
@@ -139,6 +148,7 @@ class _NameChangeLine extends StatelessWidget {
                 style: const TextStyle(
                   fontFamily: 'Permanent Marker',
                   fontSize: 30,
+                  color: Colors.white,
                 ),
               ),
             ),
@@ -170,12 +180,14 @@ class _SettingsLine extends StatelessWidget {
           children: [
             Expanded(
               child: Text(
+                
                 title,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: const TextStyle(
                   fontFamily: 'Permanent Marker',
                   fontSize: 30,
+                  color: Colors.white,
                 ),
               ),
             ),
