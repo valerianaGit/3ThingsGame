@@ -8,14 +8,14 @@ import 'package:game_template/constants/strings.dart';
 //TODO: CREATE string constants here
 
 class TimerClock extends StatefulWidget {
-  const TimerClock ({super.key});
+  const TimerClock({super.key});
 
   @override
   State<TimerClock> createState() => _TimerClockState();
 }
 
-class _TimerClockState extends State<TimerClock > {
-   final interval = const Duration(seconds: 1);
+class _TimerClockState extends State<TimerClock> {
+  final interval = const Duration(seconds: 1);
 
   final int timerMaxSeconds = 60;
 
