@@ -27,21 +27,24 @@ const kHeal = 'Ground'; // update name
 
 // M
 const kMind = 'Gratitude'; // update name
+const kMusic = 'Music';
 // N
-
+const kName = 'Name';
 // O
 
 // P
 const kPermanentMarker = 'Permanent Marker';
-
+const kPlayerProgressReset = 'Player progress has been reset.';
 // Q
 
 // R
-
+const kResetProgress = 'Reset progress';
+const kRemoveAds = 'Remove ads';
 // S
 const kSelectLevel = 'Select level';
 const kSettings = 'Settings';
 const kSave = 'Save';
+const kSoundFX = 'Sound FX';
 // T
 
 // U
