@@ -3,7 +3,7 @@
 // B
 const kBack = 'Back';
 const kBreathingInstructions =
-    ' Breath in for 5 seconds, hold for 5 seconds, breath out for 5 seconds';
+    ' Breath in for 5 seconds, hold for 5 seconds, breath out for 5 seconds'; //DONE IN LOCAL 
 const kBreathingSoundByte = 'BreathInOutSoundbyte.mp3';
 // C
 
@@ -14,7 +14,7 @@ const kDragonPicture = 'images/dragon1.png';
 // F
 const kFeed = 'Feed';
 // G
-const kGameTitle = 'Dragons Need Rest Too';
+const kGameTitle = 'Dragons Need Rest Too'; //DONE IN LOCAL 
 const kGroundingMeditation = 'Grounding Meditation';
 
 // H
@@ -28,21 +28,21 @@ const kHeal = 'Ground'; // update name
 // L
 
 // M
-const kMind = 'Gratitude'; // update name
-const kMusic = 'Music';
-const kMeditation = 'Meditation';
+//const kMind = 'Gratitude'; // update name
+//const kMusic = 'Music';
+//const kMeditation = 'Meditation';
 // N
-const kName = 'Name';
+//const kName = 'Name';
 // O
 
 // P
 const kPermanentMarker = 'Permanent Marker';
-const kPlayerProgressReset = 'Player progress has been reset.';
+//const kPlayerProgressReset = 'Player progress has been reset.';
 // Q
 
 // R
-const kResetProgress = 'Reset progress';
-const kRemoveAds = 'Remove ads';
+//const kResetProgress = 'Reset progress';
+//const kRemoveAds = 'Remove ads';
 // S
 const kSelectLevel = 'Select level';
 const kSettings = 'Settings';

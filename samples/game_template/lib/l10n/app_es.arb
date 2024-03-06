@@ -1,6 +1,12 @@
 {
     "breath": "Respira",
+    "gameTitle": "Los Dragones Tambien necesitan descansar",
     "settings": "Herramientas",
+    "playerProgressReset": "El progreso del jugador ha sido borrado.",
     "meditation": "Meditación",
+    "music": "Música",
+    "name": "Nombre",
+    "removeAds": "Remover Propagandas",
+    "resetProgress": "Borrar Progreso",
     "breathInstructions": "Inhala por 5 segundos, espera 5 segundos y exhala 5 segundos"
 }

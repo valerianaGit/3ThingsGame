@@ -13,7 +13,8 @@ import '../src/style/palette.dart';
 import '../src/style/responsive_screen.dart';
 import '../src/settings/custom_name_dialog.dart';
 import '../src/settings/settings.dart';
-import 'package:game_template/constants/strings.dart';
+//import 'package:game_template/constants/strings.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -31,8 +32,8 @@ class SettingsScreen extends StatelessWidget {
         squarishMainArea: ListView(
           children: [
             _gap,
-            const Text(
-              kSettings,
+            Text(
+              AppLocalizations.of(context)!.breathInstructions,
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.white,
@@ -42,8 +43,8 @@ class SettingsScreen extends StatelessWidget {
               ),
             ),
             _gap,
-            const _NameChangeLine(
-              kName,
+             _NameChangeLine(
+              AppLocalizations.of(context)!.name, 
             ),
             // ValueListenableBuilder<bool>(
             //   valueListenable: settings.soundsOn,
@@ -56,7 +57,7 @@ class SettingsScreen extends StatelessWidget {
             ValueListenableBuilder<bool>(
               valueListenable: settings.musicOn,
               builder: (context, musicOn, child) => _SettingsLine(
-                kMusic,
+                AppLocalizations.of(context)!.music,
                 
                 Icon(color: palette.trueWhite, musicOn ? Icons.music_note : Icons.music_off),
                 onSelected: () => settings.toggleMusicOn(),
@@ -84,13 +85,13 @@ class SettingsScreen extends StatelessWidget {
                 };
               }
               return _SettingsLine(
-                kRemoveAds,
+                AppLocalizations.of(context)!.removeAds,
                 icon,
                 onSelected: callback,
               );
-            }),
+            },),
             _SettingsLine(
-              kResetProgress,
+              AppLocalizations.of(context)!.resetProgress,
               const Icon(Icons.delete, color:Colors.white,),
               onSelected: () {
                 context.read<PlayerProgress>().reset();
@@ -98,14 +99,14 @@ class SettingsScreen extends StatelessWidget {
                 final messenger = ScaffoldMessenger.of(context);
                 messenger.showSnackBar(
                   const SnackBar(
-                      content: Text(kPlayerProgressReset)),
+                      content: Text(AppLocalizations.of(context)!.playerProgressReset)),
                 );
               },
             ),
             _gap,
           ],
         ),
-        rectangularMenuArea: Center(child: const Text(kGameTitle, 
+        rectangularMenuArea: Center(child: const Text(AppLocalizations.of(context)!.gameTitle, 
                         style: TextStyle(
                   fontFamily: 'Permanent Marker',
                   fontSize: 25.0,

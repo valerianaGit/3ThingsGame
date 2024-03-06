@@ -1,7 +1,13 @@
 {
     "breath": "Breath",
+    "gameTitle": "Dragons Need Rest Too",
     "settings": "Settings",
+    "playerProgressReset": "Player progress has been reset.",
     "meditation": "Meditation",
+    "music": "Music",
+    "name": "Name",
+    "removeAds": "Remove Ads",
+    "resetProgress": "Reset Progress",
     "breathInstructions": "Breath in for 5 seconds, hold for 5 seconds, breath out for 5 seconds"
   }
  

@@ -1,7 +1,13 @@
 {
     "@@locale": "ja",
     "breath": "息",
+    "gameTitle": "ドラゴンにも休息が必要だ",
     "settings": "設定",
+    "playerProgressReset": "プレイヤーの進行状況がリセットされました",
     "meditation": "瞑想",
+    "music": "音楽",
+    "name": "名前",
+    "removeAds": "広告を削除",
+    "resetProgress": "進行状況をリセットする",
     "breathInstructions": "5秒かけて息を吸い、5秒間止めて、5秒かけて息を吐きます"
 }
