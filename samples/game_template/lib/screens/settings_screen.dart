@@ -45,14 +45,14 @@ class SettingsScreen extends StatelessWidget {
             const _NameChangeLine(
               kName,
             ),
-            ValueListenableBuilder<bool>(
-              valueListenable: settings.soundsOn,
-              builder: (context, soundsOn, child) => _SettingsLine(
-                kSoundFX,
-                Icon(color: palette.trueWhite, soundsOn ? Icons.graphic_eq : Icons.volume_off),
-                onSelected: () => settings.toggleSoundsOn(),
-              ),
-            ),
+            // ValueListenableBuilder<bool>(
+            //   valueListenable: settings.soundsOn,
+            //   builder: (context, soundsOn, child) => _SettingsLine(
+            //     kSoundFX,
+            //     Icon(color: palette.trueWhite, soundsOn ? Icons.graphic_eq : Icons.volume_off),
+            //     onSelected: () => settings.toggleSoundsOn(),
+            //   ),
+            // ),
             ValueListenableBuilder<bool>(
               valueListenable: settings.musicOn,
               builder: (context, musicOn, child) => _SettingsLine(
