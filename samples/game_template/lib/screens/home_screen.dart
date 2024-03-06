@@ -22,8 +22,8 @@ class _HomeScreenState extends State<HomeScreen> {
     int selectedIndex = 0;
   final screens = [
    BreathScreen(),
-   GroundScreen(),
-   GratitudeScreen(),
+  //  GroundScreen(),
+  //  GratitudeScreen(),
    SettingsScreen(),
   ];
   @override
@@ -48,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.shifting,
         selectedItemColor: palette.trueWhite,
-        unselectedItemColor: palette.darkPen,
+        unselectedItemColor: Colors.blueGrey,
         currentIndex: selectedIndex,
         onTap: (index) => setState(() => selectedIndex = index),
         items: [
@@ -61,15 +61,15 @@ class _HomeScreenState extends State<HomeScreen> {
             backgroundColor: palette.darkestGrayBackground,
            
           ),
- BottomNavigationBarItem(
+//  BottomNavigationBarItem(
             
-            icon: Icon(Icons.handshake_sharp),
-            label: kHeal,
-          ),
-BottomNavigationBarItem(
-            icon: Icon(Icons.wine_bar_sharp),
-            label: kMind,          
-          ),
+//             icon: Icon(Icons.handshake_sharp),
+//             label: kHeal,
+//           ),
+// BottomNavigationBarItem(
+//             icon: Icon(Icons.wine_bar_sharp),
+//             label: kMind,          
+//           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings_applications_sharp),
             label: kSettings,

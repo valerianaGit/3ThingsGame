@@ -42,6 +42,7 @@ import 'constants/strings.dart';
 import 'screens/home_screen.dart';
 import 'data/drift_db.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 Future<void> main() async {
   // Subscribe to log messages.
@@ -214,7 +215,7 @@ class MyApp extends StatelessWidget {
     supportedLocales: const [
     Locale('en'), // English
     Locale('es'), // Spanish
-    Locale('jp'), // Japanese 
+    Locale('ja'), // Japanese 
   ],
             title: kGameTitle,
             theme: ThemeData.from(
