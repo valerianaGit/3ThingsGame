@@ -41,6 +41,7 @@ import 'src/win_game/win_game_screen.dart';
 import 'constants/strings.dart';
 import 'screens/home_screen.dart';
 import 'data/drift_db.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 Future<void> main() async {
   // Subscribe to log messages.
@@ -205,6 +206,16 @@ class MyApp extends StatelessWidget {
           //color palette for app
           final palette = context.watch<Palette>();
           return MaterialApp(
+              localizationsDelegates: const [
+    GlobalMaterialLocalizations.delegate,
+    GlobalWidgetsLocalizations.delegate,
+    GlobalCupertinoLocalizations.delegate,
+  ],
+    supportedLocales: const [
+    Locale('en'), // English
+    Locale('es'), // Spanish
+    Locale('jp'), // Japanese 
+  ],
             title: kGameTitle,
             theme: ThemeData.from(
               //set application color scheme -  can edit these, if needed
