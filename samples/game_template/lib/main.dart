@@ -207,16 +207,8 @@ class MyApp extends StatelessWidget {
           //color palette for app
           final palette = context.watch<Palette>();
           return MaterialApp(
-              localizationsDelegates: const [
-    GlobalMaterialLocalizations.delegate,
-    GlobalWidgetsLocalizations.delegate,
-    GlobalCupertinoLocalizations.delegate,
-  ],
-    supportedLocales: const [
-    Locale('en'), // English
-    Locale('es'), // Spanish
-    Locale('ja'), // Japanese 
-  ],
+              localizationsDelegates:  AppLocalizations.localizationsDelegates,
+    supportedLocales: AppLocalizations.supportedLocales,
             title: kGameTitle,
             theme: ThemeData.from(
               //set application color scheme -  can edit these, if needed
