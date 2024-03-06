@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:game_template/constants/strings.dart';
+//import 'package:game_template/constants/strings.dart';
 import 'package:game_template/screens/breath_screen.dart';
 import 'package:game_template/screens/gratitude_screen.dart';
 import 'package:game_template/screens/ground_screen.dart';
@@ -7,6 +7,7 @@ import 'package:game_template/screens/ground_screen.dart';
 import 'package:game_template/screens/settings_screen.dart';
 import 'package:provider/provider.dart';
 import '../src/style/palette.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 // Class contains 
 // Scaffold -> SafeArea -> screens stack
 // screen navigation - > bottomNavBar
@@ -54,10 +55,8 @@ class _HomeScreenState extends State<HomeScreen> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.bakery_dining_sharp),
-            label: kFeed,
-            //background color is here and not in the main BottomNav code
-            //when type: .shifting, the item's background color 
-            //supercedes the main widget one  
+            label: AppLocalizations.of(context)!.breath,
+            //Text(AppLocalizations.of(context)!.helloWorld) 
             backgroundColor: palette.darkestGrayBackground,
            
           ),
@@ -72,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
 //           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings_applications_sharp),
-            label: kSettings,
+            label: AppLocalizations.of(context)!.settings,
            
           ),
         ],

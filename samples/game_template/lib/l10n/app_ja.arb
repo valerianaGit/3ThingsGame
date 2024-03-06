@@ -1,4 +1,6 @@
 {
     "@@locale": "ja",
-    "helloWorld": "「こんにちは世界」"
+    "helloWorld": "「こんにちは世界」",
+    "breath": "息",
+    "settings": "設定"
 }
