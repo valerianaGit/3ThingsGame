@@ -1,9 +1,7 @@
 {
-    "helloWorld": "Hello World!",
-    "@helloWorld": {
-      "description": "The conventional newborn programmer greeting"
-    },
     "breath": "Breath",
-    "settings": "Settings"
+    "settings": "Settings",
+    "meditation": "Meditation",
+    "breathInstructions": "Breath in for 5 seconds, hold for 5 seconds, breath out for 5 seconds"
   }
  

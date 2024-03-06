@@ -1,5 +1,6 @@
 {
-    "helloWorld": "¡Hola Mundo!",
     "breath": "Respira",
-    "settings": "Herramientas"
+    "settings": "Herramientas",
+    "meditation": "Meditación",
+    "breathInstructions": "Inhala por 5 segundos, espera 5 segundos y exhala 5 segundos"
 }

@@ -56,7 +56,6 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.bakery_dining_sharp),
             label: AppLocalizations.of(context)!.breath,
-            //Text(AppLocalizations.of(context)!.helloWorld) 
             backgroundColor: palette.darkestGrayBackground,
            
           ),

@@ -5,8 +5,7 @@ import 'package:provider/provider.dart';
 import '../src/style/palette.dart';
 import 'package:game_template/constants/strings.dart';
 import 'package:audioplayers/audioplayers.dart';
-
-//TODO: CREATE string constants here
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TimerClock extends StatefulWidget {
   const TimerClock({super.key});
@@ -84,8 +83,8 @@ class _TimerClockState extends State<TimerClock> {
     final palette = context.watch<Palette>();
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          kMeditation,
+        title: Text(
+          AppLocalizations.of(context)!.meditation,
           textAlign: TextAlign.center,
           style: TextStyle(
             fontFamily: 'Permanent Marker',
@@ -103,7 +102,7 @@ class _TimerClockState extends State<TimerClock> {
                 padding: EdgeInsets.only(
                     top: 16.0, left: 64.0, right: 64.0, bottom: 32.0),
                 child: Text(
-                  kBreathingInstructions, // TODO: HAVE GEMINI add something by remi here
+                  AppLocalizations.of(context)!.breathInstructions, // TODO: HAVE GEMINI add something by remi here
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: palette.trueWhite,
