@@ -2,8 +2,9 @@
 
 // B
 const kBack = 'Back';
-const kBreathingInstructions =' Breath in for 5 seconds, hold for 5 seconds, breath out for 5 seconds';
-
+const kBreathingInstructions =
+    ' Breath in for 5 seconds, hold for 5 seconds, breath out for 5 seconds';
+const kBreathingSoundByte = 'BreathInOutSoundbyte.mp3';
 // C
 
 // D
@@ -29,6 +30,7 @@ const kHeal = 'Ground'; // update name
 // M
 const kMind = 'Gratitude'; // update name
 const kMusic = 'Music';
+const kMeditation = 'Meditation';
 // N
 const kName = 'Name';
 // O
