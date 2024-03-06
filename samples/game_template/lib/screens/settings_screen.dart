@@ -33,7 +33,7 @@ class SettingsScreen extends StatelessWidget {
           children: [
             _gap,
             Text(
-              AppLocalizations.of(context)!.breathInstructions,
+              AppLocalizations.of(context)!.settings,
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.white,
@@ -98,7 +98,7 @@ class SettingsScreen extends StatelessWidget {
 
                 final messenger = ScaffoldMessenger.of(context);
                 messenger.showSnackBar(
-                  const SnackBar(
+                  SnackBar(
                       content: Text(AppLocalizations.of(context)!.playerProgressReset)),
                 );
               },
@@ -106,7 +106,7 @@ class SettingsScreen extends StatelessWidget {
             _gap,
           ],
         ),
-        rectangularMenuArea: Center(child: const Text(AppLocalizations.of(context)!.gameTitle, 
+        rectangularMenuArea: Center(child: Text(AppLocalizations.of(context)!.gameTitle, 
                         style: TextStyle(
                   fontFamily: 'Permanent Marker',
                   fontSize: 25.0,
