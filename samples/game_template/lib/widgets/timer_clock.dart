@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import '../src/style/palette.dart';
 import 'package:game_template/constants/strings.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 //TODO: CREATE string constants here
 
@@ -53,18 +54,20 @@ class _TimerClockState extends State<TimerClock> {
   }
 
   startTimeout([int milliseconds = 100]) {
-    //TODO: ADD BREATH SOUND
+            AudioPlayer player = AudioPlayer();
+                     
     var duration = interval;
     startPause = !startPause;
     print('pause $startPause');
     Timer.periodic(duration, (timer) {
       setState(() {
         if (startPause == false) {
-          // print(timer.tick);
+           player.play(AssetSource(kBreathingSoundByte));
           currentSeconds = timer.tick;
           if (timer.tick >= timerMaxSeconds) timer.cancel();
         } else {
           currentSeconds = 0;
+          player.stop();
           timer.cancel();
         }
       });
@@ -81,16 +84,15 @@ class _TimerClockState extends State<TimerClock> {
     final palette = context.watch<Palette>();
     return Scaffold(
       appBar: AppBar(
-        title: 
-                    const Text(
-              kGroundingMeditation,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontFamily: 'Permanent Marker',
-                fontSize: 28.0,
-                height: 1,
-              ),
-            ),
+        title: const Text(
+          kMeditation,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontFamily: 'Permanent Marker',
+            fontSize: 28.0,
+            height: 1,
+          ),
+        ),
       ),
       body: SafeArea(
         child: Center(
@@ -108,7 +110,6 @@ class _TimerClockState extends State<TimerClock> {
                   ),
                 ),
               ),
-
               Stack(
                 children: [
                   SizedBox(
@@ -119,7 +120,6 @@ class _TimerClockState extends State<TimerClock> {
                           palette.accentDeepPurple, // time left color
                       color:
                           palette.darkestGrayBackground, // time passed color -
-                      //if I make it same as background, it will look transparent
                       value: timerDouble,
                       semanticsLabel: timerText,
                     ),
@@ -130,7 +130,6 @@ class _TimerClockState extends State<TimerClock> {
                   ),
                 ],
               ),
-
               SizedBox(
                 height: 32.0,
               ),
@@ -151,6 +150,7 @@ class _TimerClockState extends State<TimerClock> {
                     splashColor: palette.purplePink, // inkwell color
                     child: SizedBox(width: 60.0, height: 60.0, child: getIcon),
                     onTap: () {
+              
                       startTimeout();
                     },
                   ),
