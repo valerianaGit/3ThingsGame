@@ -111,7 +111,7 @@ class SettingsScreen extends StatelessWidget {
                   fontFamily: 'Permanent Marker',
                   fontSize: 25.0,
                   color: Colors.white,
-                ))),
+                ),),),
      
       ),
     );
