@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 //import 'package:game_template/constants/strings.dart';
 import 'package:game_template/screens/breath_screen.dart';
-import 'package:game_template/screens/gratitude_screen.dart';
-import 'package:game_template/screens/ground_screen.dart';
+// import 'package:game_template/screens/gratitude_screen.dart';
+// import 'package:game_template/screens/ground_screen.dart';
 
 import 'package:game_template/screens/settings_screen.dart';
 import 'package:provider/provider.dart';

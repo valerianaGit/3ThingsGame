@@ -23,10 +23,9 @@ import 'src/audio/audio_controller.dart';
 import 'src/games_services/games_services.dart';
 import 'src/games_services/score.dart';
 import 'src/in_app_purchase/in_app_purchase.dart';
-import 'screens/level_selection_screen.dart';
+
 import 'src/level_selection/levels.dart';
-import 'screens/main_menu_screen.dart';
-import 'screens/play_session_screen.dart';
+
 import 'src/player_progress/persistence/local_storage_player_progress_persistence.dart';
 import 'src/player_progress/persistence/player_progress_persistence.dart';
 import 'src/player_progress/player_progress.dart';
@@ -40,7 +39,7 @@ import 'src/style/snack_bar.dart';
 import 'src/win_game/win_game_screen.dart';
 import 'constants/strings.dart';
 import 'screens/home_screen.dart';
-import 'data/drift_db.dart';
+
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -199,10 +198,6 @@ class MyApp extends StatelessWidget {
           //6 - palette provider
           Provider(
             create: (context) => Palette(),
-          ),
-          // 7 - database provider
-          ChangeNotifierProvider(
-            create: (context) => GratitudesDatabase(),
           ),
         ],
         child: Builder(builder: (context) {

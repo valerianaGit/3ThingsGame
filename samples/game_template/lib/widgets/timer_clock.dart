@@ -125,7 +125,7 @@ player.stop();
                     top: 16.0, left: 64.0, right: 64.0, bottom: 32.0),
                 child: Text(
                   AppLocalizations.of(context)!
-                      .breathInstructions, // TODO: HAVE GEMINI add something by remi here
+                      .breathInstructions, 
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontFamily: kFontMacondo,
@@ -141,10 +141,6 @@ player.stop();
                     width: 300.0,
                     child: CircularProgressIndicator(
                       valueColor: colorTween,
-                      // backgroundColor:
-                      //     palette.accentDeepPurple, // time left color
-                      // color:
-                      //     palette.darkestGrayBackground, // time passed color -
                       value: timerDouble,
                       semanticsLabel: timerText,
                     ),
@@ -155,9 +151,6 @@ player.stop();
                   ),
                 ],
               ),
-              // SizedBox(
-              //   height: 8.0,
-              // ),
               Padding(
                 padding: EdgeInsets.all(6.0),
                 child: Text(
@@ -168,9 +161,6 @@ player.stop();
                       color: palette.trueWhite),
                 ),
               ),
-              // SizedBox(
-              //   height: 16.0,
-              // ),
               ClipOval(
                 child: Material(
                   color: palette.accentDeepPurple, // button color
