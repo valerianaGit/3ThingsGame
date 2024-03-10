@@ -155,19 +155,22 @@ player.stop();
                   ),
                 ],
               ),
-              SizedBox(
-                height: 32.0,
+              // SizedBox(
+              //   height: 8.0,
+              // ),
+              Padding(
+                padding: EdgeInsets.all(6.0),
+                child: Text(
+                  timerText,
+                  style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                      color: palette.trueWhite),
+                ),
               ),
-              Text(
-                timerText,
-                style: TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                    color: palette.trueWhite),
-              ),
-              SizedBox(
-                height: 16.0,
-              ),
+              // SizedBox(
+              //   height: 16.0,
+              // ),
               ClipOval(
                 child: Material(
                   color: palette.accentDeepPurple, // button color
