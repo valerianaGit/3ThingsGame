@@ -29,8 +29,8 @@ class _TimerClockState extends State<TimerClock> with TickerProviderStateMixin {
         AnimationController(vsync: this, duration: animationDuration);
     colorTween = animationController.drive(
       ColorTween(
-        begin: Colors.amber,
-        end: Colors.blue,
+        begin: Colors.white,
+        end: Colors.pink[900],
       ),
     );
     super.initState();
@@ -86,7 +86,10 @@ class _TimerClockState extends State<TimerClock> with TickerProviderStateMixin {
           player.play(AssetSource(kBreathingSoundByte));
           currentSeconds = timer.tick;
           animationController.forward();
-          if (timer.tick >= timerMaxSeconds) timer.cancel();
+          if (timer.tick >= timerMaxSeconds) {
+timer.cancel();
+player.stop();
+          } 
         } else {
           currentSeconds = 0;
           player.stop();
