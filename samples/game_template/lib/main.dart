@@ -196,9 +196,11 @@ class MyApp extends StatelessWidget {
             },
             dispose: (context, audio) => audio.dispose(),
           ),
+          //6 - palette provider
           Provider(
             create: (context) => Palette(),
           ),
+          // 7 - database provider
           ChangeNotifierProvider(
             create: (context) => GratitudesDatabase(),
           ),
