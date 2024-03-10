@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:game_template/constants/strings.dart';
 import 'package:go_router/go_router.dart';
 import 'package:path/path.dart';
 import 'package:provider/provider.dart';
@@ -37,7 +38,7 @@ class SettingsScreen extends StatelessWidget {
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.white,
-                fontFamily: 'Permanent Marker',
+                fontFamily: kFontMacondo,
                 fontSize: 55,
                 height: 1,
               ),
@@ -95,7 +96,7 @@ class SettingsScreen extends StatelessWidget {
         ),
         rectangularMenuArea: Center(child: Text(AppLocalizations.of(context)!.gameTitle, 
                         style: TextStyle(
-                  fontFamily: 'Permanent Marker',
+                  fontFamily: kFontMacondo,
                   fontSize: 25.0,
                   color: Colors.white,
                 ),),),
@@ -124,7 +125,7 @@ class _NameChangeLine extends StatelessWidget {
           children: [
             Text(title,
                 style: const TextStyle(
-                  fontFamily: 'Permanent Marker',
+                  fontFamily: kFontMacondo,
                   fontSize: 30,
                   color: Colors.white,
                 )),
@@ -134,7 +135,7 @@ class _NameChangeLine extends StatelessWidget {
               builder: (context, name, child) => Text(
                 '‘$name’',
                 style: const TextStyle(
-                  fontFamily: 'Permanent Marker',
+                  fontFamily: kFontMacondo,
                   fontSize: 30,
                   color: Colors.white,
                 ),
@@ -173,7 +174,7 @@ class _SettingsLine extends StatelessWidget {
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: const TextStyle(
-                  fontFamily: 'Permanent Marker',
+                  fontFamily: kFontMacondo,
                   fontSize: 30,
                   color: Colors.white,
                 ),

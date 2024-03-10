@@ -87,7 +87,7 @@ class _TimerClockState extends State<TimerClock> {
           AppLocalizations.of(context)!.meditation,
           textAlign: TextAlign.center,
           style: TextStyle(
-            fontFamily: 'Permanent Marker',
+            fontFamily: kFontMacondo,
             fontSize: 28.0,
             height: 1,
           ),
@@ -105,6 +105,8 @@ class _TimerClockState extends State<TimerClock> {
                   AppLocalizations.of(context)!.breathInstructions, // TODO: HAVE GEMINI add something by remi here
                   textAlign: TextAlign.center,
                   style: TextStyle(
+                    fontFamily: kFontMacondo,
+                     fontSize: 24.0,
                     color: palette.trueWhite,
                   ),
                 ),

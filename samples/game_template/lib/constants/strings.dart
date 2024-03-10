@@ -3,7 +3,7 @@
 // B
 const kBack = 'Back';
 const kBreathingInstructions =
-    ' Breath in for 5 seconds, hold for 5 seconds, breath out for 5 seconds'; //DONE IN LOCAL 
+    ' Breath in for 5 seconds, hold for 5 seconds, breath out for 5 seconds'; //DONE IN LOCAL
 const kBreathingSoundByte = 'BreathInOutSoundbyte.mp3';
 // C
 
@@ -13,8 +13,9 @@ const kDragonPicture = 'images/dragon1.png';
 
 // F
 const kFeed = 'Feed';
+const kFontMacondo = 'Macondo';
 // G
-const kGameTitle = 'Dragons Need Rest Too'; //DONE IN LOCAL 
+const kGameTitle = 'Dragons Need Rest Too'; //DONE IN LOCAL
 const kGroundingMeditation = 'Grounding Meditation';
 
 // H

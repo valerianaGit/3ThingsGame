@@ -60,6 +60,9 @@ flutter:
     - family: Permanent Marker
       fonts:
         - asset: assets/Permanent_Marker/PermanentMarker-Regular.ttf
+    - family: Macondo
+      fonts:
+        - asset: assets/macondo_font/Macondo-Regular.ttf
 
 flutter_icons:
   android: true
