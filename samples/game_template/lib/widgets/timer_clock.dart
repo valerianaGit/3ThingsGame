@@ -14,15 +14,31 @@ class TimerClock extends StatefulWidget {
   State<TimerClock> createState() => _TimerClockState();
 }
 
-class _TimerClockState extends State<TimerClock> {
-  final interval = const Duration(seconds: 1);
-
-  final int timerMaxSeconds = 60;
-
+class _TimerClockState extends State<TimerClock> with TickerProviderStateMixin {
+  late AnimationController animationController;
+  late Animation<Color?> colorTween;
   int currentSeconds = 0;
+  final interval = const Duration(seconds: 1);
   bool startPause = true;
+  final int timerMaxSeconds = 60;
+  final Duration animationDuration = Duration(seconds: 60);
+
+  @override
+  void initState() {
+    animationController =
+        AnimationController(vsync: this, duration: animationDuration);
+    colorTween = animationController.drive(
+      ColorTween(
+        begin: Colors.amber,
+        end: Colors.blue,
+      ),
+    );
+    super.initState();
+  }
+
   String get timerText =>
       '${((timerMaxSeconds - currentSeconds) ~/ 60).toString().padLeft(2, '0')}: ${((timerMaxSeconds - currentSeconds) % 60).toString().padLeft(2, '0')}';
+
   double get timerDouble {
     double timer = currentSeconds.toDouble() / timerMaxSeconds.toDouble();
     return timer;
@@ -53,16 +69,17 @@ class _TimerClockState extends State<TimerClock> {
   }
 
   startTimeout([int milliseconds = 100]) {
-            AudioPlayer player = AudioPlayer();
-                     
+    AudioPlayer player = AudioPlayer();
+
     var duration = interval;
     startPause = !startPause;
     print('pause $startPause');
     Timer.periodic(duration, (timer) {
       setState(() {
         if (startPause == false) {
-           player.play(AssetSource(kBreathingSoundByte));
+          player.play(AssetSource(kBreathingSoundByte));
           currentSeconds = timer.tick;
+          //animationController.repeat();
           if (timer.tick >= timerMaxSeconds) timer.cancel();
         } else {
           currentSeconds = 0;
@@ -71,11 +88,6 @@ class _TimerClockState extends State<TimerClock> {
         }
       });
     });
-  }
-
-  @override
-  void initState() {
-    super.initState();
   }
 
   @override
@@ -102,11 +114,12 @@ class _TimerClockState extends State<TimerClock> {
                 padding: EdgeInsets.only(
                     top: 16.0, left: 64.0, right: 64.0, bottom: 32.0),
                 child: Text(
-                  AppLocalizations.of(context)!.breathInstructions, // TODO: HAVE GEMINI add something by remi here
+                  AppLocalizations.of(context)!
+                      .breathInstructions, // TODO: HAVE GEMINI add something by remi here
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontFamily: kFontMacondo,
-                     fontSize: 24.0,
+                    fontSize: 24.0,
                     color: palette.trueWhite,
                   ),
                 ),
@@ -117,10 +130,11 @@ class _TimerClockState extends State<TimerClock> {
                     height: 300.0,
                     width: 300.0,
                     child: CircularProgressIndicator(
-                      backgroundColor:
-                          palette.accentDeepPurple, // time left color
-                      color:
-                          palette.darkestGrayBackground, // time passed color -
+                      valueColor: colorTween,
+                      // backgroundColor:
+                      //     palette.accentDeepPurple, // time left color
+                      // color:
+                      //     palette.darkestGrayBackground, // time passed color -
                       value: timerDouble,
                       semanticsLabel: timerText,
                     ),
@@ -151,7 +165,6 @@ class _TimerClockState extends State<TimerClock> {
                     splashColor: palette.purplePink, // inkwell color
                     child: SizedBox(width: 60.0, height: 60.0, child: getIcon),
                     onTap: () {
-              
                       startTimeout();
                     },
                   ),
