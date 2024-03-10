@@ -85,7 +85,7 @@ class _TimerClockState extends State<TimerClock> with TickerProviderStateMixin {
         if (startPause == false) {
           player.play(AssetSource(kBreathingSoundByte));
           currentSeconds = timer.tick;
-          animationController.forward(); //repeat();
+          animationController.forward();
           if (timer.tick >= timerMaxSeconds) timer.cancel();
         } else {
           currentSeconds = 0;
