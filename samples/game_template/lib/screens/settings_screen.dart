@@ -90,19 +90,6 @@ class SettingsScreen extends StatelessWidget {
                 onSelected: callback,
               );
             },),
-            _SettingsLine(
-              AppLocalizations.of(context)!.resetProgress,
-              const Icon(Icons.delete, color:Colors.white,),
-              onSelected: () {
-                context.read<PlayerProgress>().reset();
-
-                final messenger = ScaffoldMessenger.of(context);
-                messenger.showSnackBar(
-                  SnackBar(
-                      content: Text(AppLocalizations.of(context)!.playerProgressReset)),
-                );
-              },
-            ),
             _gap,
           ],
         ),
